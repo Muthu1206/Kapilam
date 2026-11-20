@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --kapilam-deep: #45251d;
+  --kapilam-terracotta: #713b2b;
+  --kapilam-burnt-clay: #a65336;
+  --kapilam-sandstone: #c79b7a;
+  --kapilam-linen: #e8d8c5;
+  --kapilam-ivory: #f7f1e9;
+  --kapilam-sage: #777b68;
+  --kapilam-charcoal: #282321;
+  --kapilam-obsidian: #181311;
+
+  --background: var(--kapilam-obsidian);
+  --foreground: var(--kapilam-ivory);
+}
+
+@theme inline {
+  --color-deep-kapilam: var(--kapilam-deep);
+  --color-dark-terracotta: var(--kapilam-terracotta);
+  --color-burnt-clay: var(--kapilam-burnt-clay);
+  --color-sandstone: var(--kapilam-sandstone);
+  --color-warm-linen: var(--kapilam-linen);
+  --color-ivory: var(--kapilam-ivory);
+  --color-muted-sage: var(--kapilam-sage);
+  --color-charcoal: var(--kapilam-charcoal);
+  --color-obsidian: var(--kapilam-obsidian);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Typography system: Bodoni Moda (display), Cormorant Garamond (editorial),
+     Manrope (body/UI), Noto Serif Tamil (supporting Tamil) */
+  --font-display: var(--font-bodoni), "Bodoni Moda", "Didot", Georgia, serif;
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+  --font-tamil: var(--font-noto-tamil), "Noto Serif Tamil", serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--kapilam-obsidian);
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--kapilam-obsidian);
+    color: var(--kapilam-ivory);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--kapilam-burnt-clay) 80%, transparent);
+    color: var(--kapilam-ivory);
+  }
+}
+
+.clay-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ---------- Editorial typography ---------- */
+.editorial-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.editorial-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.editorial-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.tamil {
+  font-family: var(--font-tamil);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+}
+
+/* Highlight sweep (animated by GSAP via background-size) */
+.hl {
+  color: inherit;
+  background-color: transparent;
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--kapilam-burnt-clay) 30%, transparent),
+    color-mix(in srgb, var(--kapilam-burnt-clay) 30%, transparent)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 36%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ---------- Horizontal galleries ----------
+   Default (mobile / reduced motion): native touch-scrolling rail.
+   When GSAP pins the section, the `is-hpinned` class hands control to ScrollTrigger. */
+.hscroll-viewport {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.hscroll-viewport::-webkit-scrollbar {
+  display: none;
+}
+.hscroll-viewport .snap-card {
+  scroll-snap-align: start;
+}
+.is-hpinned .hscroll-viewport {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+/* Custom cursor (only enabled on fine pointers via JS) */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
