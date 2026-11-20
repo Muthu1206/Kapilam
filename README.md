@@ -1,3 +1,15 @@
+**Kapilam **
+
+An Rooted in the ancient soil of India, Kapilam draws its name from the rich, dark brown
+hue of terracotta, a color that whispers stories of the past, of tradition, and of warmth.
+The timeless craft of Indian pottery and terracotta is brought to life through the hands of tradi-tional artisans and shaped with a contempo-rary soul.
+It is a journey back to childhood, whenfingers first met clay, and every grain of sand held the potential for a story, a world, adream.
+
+Working with traditional potters, Kapilam also strives to promote the most sustainable and eco-friendly products, supporting their
+community and craftsmanship. Each curve, each imperfection, is a mark of a maker's soul and of my own deep passion
+for sculpting life out of earth.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
