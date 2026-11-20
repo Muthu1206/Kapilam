@@ -1,4 +1,4 @@
-**Kapilam **
+## Kapilam
 
 An Rooted in the ancient soil of India, Kapilam draws its name from the rich, dark brown
 hue of terracotta, a color that whispers stories of the past, of tradition, and of warmth.
